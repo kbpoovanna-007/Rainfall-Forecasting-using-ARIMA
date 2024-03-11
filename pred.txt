@@ -1,0 +1,32 @@
+1. What is ARIIMA?ARIMA stands for AutoRegressive Integrated Moving Average
+ALso understand what being stationary 
+if possible also try to understand how to identify whether a graph is stationary or not
+
+
+So what is a stationary graph?
+- there should be no seasonality in the graph - easy to check for a pattern
+- the mean should be constant - if it is equally divided with the axis
+- standard deviation of the graph should be constand - this you can check if the spread of the data is constant
+
+in teh graph that we have obviously being a rainfall graph we can see some kind of seasonality
+heance it is a non staionary data and we have to convert it into stationary data
+2. Understanding the dataset that i have
+
+following the instructions given below
+https://machinelearningmastery.com/arima-for-time-series-forecasting-with-python/
+
+
+3. here we use the ARIIMA model
+ARIIMA(p, d, q)
+The parameters of the ARIMA model are defined as follows:
+
+p: The lag order, representing the number of lag observations incorporated in the model.
+d: Degree of differencing, denoting the number of times raw observations undergo differencing.
+q: Order of moving average, indicating the size of the moving average window
+
+ultimately its about tweaking these parameters to reduce the error 
+also after you finish this try to understand what each of them do and why this is such an efficinet model
+
+
+----------------------------------------------------------------------------------------------------------------------------
+

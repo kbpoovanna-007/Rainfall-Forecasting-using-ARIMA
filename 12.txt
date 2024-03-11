@@ -1,0 +1,48 @@
+we can use the pmdarima package to get the number of differencing
+
+
+#!pipenv install --skip-lock pmdarima
+
+from pmdarima.arima.utils import ndiffs
+
+ndiffs(df.close, test="adf")
+
+ 
+this will help us to get the value of d directly instead of checking the plot and 
+selecting the value manually
+
+you can check the api reference for pmdarima
+
+
+
+p is the order of the AR term. It refers to the number of lags to be  used as predictors.
+We can find out the required number of AR terms by inspecting the partial autocorrelationplot
+The partial autocorrelation represent the correlation between the series and its lags
+
+from statsmodels.graphics.tsaplots import plot_pacf
+
+diff = df.close.diff().dropna()
+
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(16,4))
+ax1.plot(doff)
+ax1.set_title("Difference once")
+ax2.set_ylin(0,1)
+plot_pacf(diff,ax=ax2)
+
+Check which point well lies about the significant line
+
+
+
+q referes to the number of lagged forcast errors that should go into the ARIMA model
+We can look at the ACF plot for the number of MA terms
+
+
+diff = df.close.diff().dropna()
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(16,4))
+
+ax1.plot(diff)
+ax1.set_title("Difference once")
+ax2.set_ylim(0,1)
+plot_acf(diff, ax=ax2)
+
+choose something below 4 or 5 which almost touches or stays below the significant lien
